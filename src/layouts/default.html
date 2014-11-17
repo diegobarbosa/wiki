@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>A Brand New nanoc Site - <%= @item[:title] %></title>
+    <link rel="stylesheet" href="<%= @items['/simplegrid/'].path %>">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+
+<style>
+      body {
+        background: #E9E9E9;
+       height: 100%;
+      }
+
+      html
+      {
+       height: 100%; 
+      }
+
+
+      .content 
+      {
+
+        background: white;
+        padding: 10px;
+        
+      }
+
+      .cem
+      {
+        height: 100%;
+
+      }
+
+    </style>
+
+
+  </head>
+
+  <body class="cem">
+   
+
+
+    <div class="grid grid-pad cem">
+        <div class="col-1-1 cem">
+            <div class="content cem">
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+
+
+
+     
+   
+   
+  </body>
+</html>

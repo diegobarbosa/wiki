@@ -1,0 +1,158 @@
+Crashlog created at 2014-11-14 16:31:38 -0200
+
+===== MESSAGE:
+
+TypeError: can't convert Time into String
+
+===== COMPILATION STACK:
+
+  - [item]   / (rep default)
+
+===== STACK TRACE:
+
+  0. c:/Ruby193/lib/ruby/1.9.1/time.rb:265:in `_parse'
+  1. c:/Ruby193/lib/ruby/1.9.1/time.rb:265:in `parse'
+  2. lib/blogging.rb:3:in `block in grouped_articles'
+  3. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/extra/core_ext/enumerable.rb:23:in `block in group_by'
+  4. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/extra/core_ext/enumerable.rb:22:in `each'
+  5. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/extra/core_ext/enumerable.rb:22:in `group_by'
+  6. lib/blogging.rb:2:in `grouped_articles'
+  7. item / (rep default):3:in `get_binding'
+  8. c:/Ruby193/lib/ruby/1.9.1/erb.rb:838:in `eval'
+  9. c:/Ruby193/lib/ruby/1.9.1/erb.rb:838:in `result'
+  10. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/filters/erb.rb:34:in `run'
+  11. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/filter.rb:121:in `setup_and_run'
+  12. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/result_data/item_rep.rb:339:in `filter'
+  13. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/item_rep_proxy.rb:47:in `filter'
+  14. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule_context.rb:61:in `filter'
+  15. d:/documentos/projetos/wiki/src/Rules:27:in `block in parse'
+  16. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule.rb:70:in `instance_eval'
+  17. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule.rb:70:in `apply_to'
+  18. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:386:in `compile_rep'
+  19. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:342:in `block in compile_reps'
+  20. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:335:in `loop'
+  21. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:335:in `compile_reps'
+  22. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:89:in `run'
+  23. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/base/source_data/site.rb:59:in `compile'
+  24. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/commands/compile.rb:397:in `block in run'
+  25. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/commands/compile.rb:438:in `run_listeners_while'
+  26. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/commands/compile.rb:396:in `run'
+  27. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/command_runner.rb:14:in `block in call'
+  28. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
+  29. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  30. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/command_runner.rb:13:in `call'
+  31. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command_dsl.rb:223:in `block in runner'
+  32. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:298:in `call'
+  33. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:298:in `run_this'
+  34. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:251:in `run'
+  35. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/commands/nanoc.rb:39:in `block in define'
+  36. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:298:in `call'
+  37. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:298:in `run_this'
+  38. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib/cri/command.rb:251:in `run'
+  39. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli.rb:59:in `block in run'
+  40. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/error_handler.rb:74:in `handle_while'
+  41. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli/error_handler.rb:26:in `handle_while'
+  42. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib/nanoc/cli.rb:57:in `run'
+  43. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/bin/nanoc:25:in `<top (required)>'
+  44. c:/Ruby193/bin/nanoc:23:in `load'
+
+===== VERSION INFORMATION:
+
+nanoc 3.7.3 © 2007-2014 Denis Defreyne.
+Running ruby 1.9.3 (2013-01-15) on i386-mingw32 with RubyGems 1.8.24.
+
+===== SYSTEM INFORMATION:
+
+MINGW32_NT-6.1 INFO03 1.0.12(0.46/3/2) 2012-07-05 14:56 i686 unknown
+
+===== INSTALLED GEMS:
+
+  adsf 1.2.0
+  bigdecimal 1.1.0
+  colored 1.2
+  cri 2.6.1
+  diff-lcs 1.2.5
+  io-console 0.3
+  json 1.5.4
+  kramdown 1.5.0
+  minitest 2.5.1
+  nanoc 3.7.3
+  rack 1.5.2
+  rake 0.9.2.2, 10.3.2
+  rdoc 3.9.4
+  rspec 2.14.1
+  rspec-core 2.14.7
+  rspec-expectations 2.14.4
+  rspec-mocks 2.14.4
+
+===== ENVIRONMENT:
+
+!:: => "::\\"
+ALLUSERSPROFILE => "C:\\ProgramData"
+APPDATA => "C:\\Users\\diego\\AppData\\Roaming"
+CHOCOLATEYINSTALL => "C:\\Chocolatey"
+COMMONPROGRAMFILES => "C:\\Program Files\\Common Files"
+COMPUTERNAME => "INFO03"
+COMSPEC => "C:\\Windows\\system32\\cmd.exe"
+FP_NO_HOST_CHECK => "NO"
+GNUPGHOME => "c:/Users/diego/.gnupg"
+HISTFILE => "c:/Users/diego/.bash_history"
+HOME => "c:/Users/diego"
+HOMEDRIVE => "C:"
+HOMEPATH => "\\Users\\diego"
+INPUTRC => "C:/Program Files/Git/etc/inputrc"
+LESS => "-FRSX"
+LESSCHARSET => "utf-8"
+LOCALAPPDATA => "C:\\Users\\diego\\AppData\\Local"
+LOGNAME => "diego"
+LOGONSERVER => "\\\\DCSIC"
+MAKE_MODE => "unix"
+MSYSTEM => "MINGW32"
+NUGET_PATH => "\\\\dcsic\\informatica\\nuget"
+NUMBER_OF_PROCESSORS => "4"
+OLDPWD => "d:/documentos/projetos/wiki"
+OS => "Windows_NT"
+PATH => "c:\\Users\\diego\\bin;.;C:\\Program Files\\Git\\local\\bin;C:\\Program Files\\Git\\mingw\\bin;C:\\Program Files\\Git\\bin;c:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;c:\\Windows\\system32;c:\\Windows;c:\\Windows\\System32\\Wbem;c:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;c:\\Program Files\\TortoiseSVN\\bin;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;c:\\Program Files\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;c:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\VSShell\\Common7\\IDE\\;c:\\Program Files\\Windows Live\\Shared;\\\\dcsic\\informatica\\nuget;c:\\Program Files\\Microsoft\\Web Platform Installer\\;c:\\Users\\diego\\Downloads\\phantomjs-1.9.7-windows\\phantomjs-1.9.7-windows\\;c:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\110\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\ManagementStudio\\;c:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;c:\\Program Files\\Microsoft SQL Server\\120\\DTS\\Binn\\;c:\\Ruby193\\bin;c:\\Chocolatey\\bin;c:\\Users\\diego\\AppData\\Roaming\\scriptcs;c:\\dev\\utils\\console2\\console.exe;c:\\Program Files\\nodejs"
+PATHEXT => ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW"
+PLINK_PROTOCOL => "ssh"
+PROCESSOR_ARCHITECTURE => "x86"
+PROCESSOR_IDENTIFIER => "x86 Family 6 Model 23 Stepping 7, GenuineIntel"
+PROCESSOR_LEVEL => "6"
+PROCESSOR_REVISION => "1707"
+PROGRAMDATA => "C:\\ProgramData"
+PROGRAMFILES => "C:\\Program Files"
+PSMODULEPATH => "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\PowerShell\\Modules\\"
+PUBLIC => "C:\\Users\\Public"
+PWD => "d:/documentos/projetos/wiki/src"
+SESSIONNAME => "Console"
+SHLVL => "1"
+SYSTEMDRIVE => "C:"
+SYSTEMROOT => "C:\\Windows"
+TEMP => "C:/Users/diego/AppData/Local/Temp"
+TERM => "cygwin"
+TMP => "C:/Users/diego/AppData/Local/Temp"
+USER => "diego"
+USERDNSDOMAIN => "SICCHEQUE.LOCAL"
+USERDOMAIN => "SICCHEQUE"
+USERNAME => "diego"
+USERPROFILE => "C:\\Users\\diego"
+VBOX_INSTALL_PATH => "C:\\Program Files\\Oracle\\VirtualBox\\"
+VS100COMNTOOLS => "C:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\"
+VS90COMNTOOLS => "C:\\Program Files\\Microsoft Visual Studio 9.0\\Common7\\Tools\\"
+WINDIR => "C:\\Windows"
+_ => "c:/Ruby193/bin/nanoc"
+
+===== LOAD PATHS:
+
+  0. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib
+  1. c:/Ruby193/lib/ruby/gems/1.9.1/gems/colored-1.2/lib
+  2. c:/Ruby193/lib/ruby/gems/1.9.1/gems/cri-2.6.1/lib
+  3. c:/Ruby193/lib/ruby/gems/1.9.1/gems/nanoc-3.7.3/lib
+  4. c:/Ruby193/lib/ruby/site_ruby/1.9.1
+  5. c:/Ruby193/lib/ruby/site_ruby/1.9.1/i386-msvcrt
+  6. c:/Ruby193/lib/ruby/site_ruby
+  7. c:/Ruby193/lib/ruby/vendor_ruby/1.9.1
+  8. c:/Ruby193/lib/ruby/vendor_ruby/1.9.1/i386-msvcrt
+  9. c:/Ruby193/lib/ruby/vendor_ruby
+  10. c:/Ruby193/lib/ruby/1.9.1
+  11. c:/Ruby193/lib/ruby/1.9.1/i386-mingw32
