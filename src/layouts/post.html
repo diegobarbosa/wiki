@@ -1,0 +1,16 @@
+
+<% render 'default' do %>
+
+<link rel="stylesheet" href="<%= @items['/components/highlightjs/hybrid/'].path %>">
+<script src="<%= @items['/components/highlightjs/highlight/'].path %>"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+  <div class='post'>
+    <h1><%= item[:title] %></h1>
+    <div class="dados-post">em <%= item[:created_at] %> - <%= item[:author] %> - <a href="<%= item[:origin] %>">original</a>  </div>
+    <article>
+      <%= yield %>
+    </article>
+  </div>
+<% end %>
