@@ -2,8 +2,20 @@
 
 *
 {
-	font-family: verdana, tahoma, arial;
+	
 }
+
+code {
+    font: 1.1em "Courier New",Courier,Fixed;
+}
+
+.post
+{
+	text-align: justify;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
 
 div.dados-post
 {
@@ -23,6 +35,8 @@ h1.titulo
 body {
 background: #E9E9E9;
 min-height: 100%;
+font-family: verdana, tahoma, arial;
+color: #333;
 }
 
 html
@@ -48,5 +62,5 @@ blockquote {
 }
 
 blockquote, strike {
-    color: #777;
+    color: #777 !important;
 }

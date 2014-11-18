@@ -1,0 +1,29 @@
+---
+title: "Pequeno Dicionário da Reusabilidade em Software"
+created_at: 16/08/2005
+kind: article
+author: Philip Calçado
+origin: http://philcalcado.com/2005/08/16/pequeno-dicionario-da-reusabilidade-em-software/index.html
+---
+
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">Componente:</span><br />Um componente é um pedaço reutilizável de software. É utilizado de forma genérica e significa desde uma simples classe até um subsistema.</p>
+<p>Teoricamente, um componente:
+<ul>
+<li>Tem múltiplo-uso, é criado para ser reutilizável</li>
+<li>Independente do contexto: Não depende das suas aplicações clientes</li>
+<li>Pode formar compoentnes maiores se agrupado com outros componentes</li>
+<li><a href="http://en.wikipedia.org/wiki/Information_hiding" title="Information hiding"></a>Encapsulado, provendo uma interface para acesso á suas funcionalidades</li>
+<li>Instalado e desenvolvido independentemente da aplicação cliente</li>
+<li>Implementação substituível desde que mantida a interface exposta pelo componente  </li>
+</ul>
+<p> <a href="http://en.wikipedia.org/wiki/Software_componentry">Da wikipedia</a>, tirei esta figura:
+<div style="text-align: center;" class="fullImageLink" id="file"><img src="http://upload.wikimedia.org/wikipedia/en/5/5f/Software_components.png" alt="" border="0" height="194" width="203" /></p>
+<div style="text-align: left;">O componente <span style="font-family: courier new; color: rgb(51, 153, 153);">FooBar </span>expõe interfaces para que seus clientes utilizem suas funcioonalidades. Se amanhã eu resolver utilizar uma outra implementação, chamada <span style="color: rgb(51, 153, 153); font-family: courier new;">BarBar</span>, eu posso simplesmente substituir <span style="font-family: courier new; color: rgb(51, 153, 153);">FooBar</span>, desde que <span style="color: rgb(51, 153, 153); font-family: courier new;">BarBar</span> implemente suas interfaces (<span style="color: rgb(51, 153, 153); font-family: courier new;">GetStuff </span>e <span style="font-family: courier new; color: rgb(51, 153, 153);">AddStuff</span>).</div>
+</p></div>
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">Framework:</span><br />Um framework é um conjunto de componentes de software que provêem uma arquitetura e estrutura básica para o desenvolvimento de uma aplicação. É uma aplicação semi-pronta que deve ser extendida e personalizada.</p>
+<p>Recentemente, têm se utilizado a palavra framework para designar qualquer conjunto de bibliotecas, se perdendo seu sentido real.</p>
+<p><span style="color: rgb(153, 0, 0); font-weight: bold;">Bilbioteca(Libraries):</span><br />Subprograma ou coleção de subprogramas reutilizadas em aplicações. Contêm implementações de rotinas úteis que podem ser reutilizadas em outras aplicações.</p>
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">Container:</span><br />Gerencia o ciclo de vida de componentes e provê serviços a estes.</p>
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">API:</span><br />Interface exposta por um componente.</p>
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">Camada Lógica (Layer):</span><br />Separação de componentes por responsabilidades.</p>
+<p><span style="font-weight: bold; color: rgb(153, 0, 0);">Camada Física (Tier):</span><br />Separação de Camadas Lógicas por vários nós (máquinas).

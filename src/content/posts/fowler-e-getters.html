@@ -1,0 +1,38 @@
+---
+title: "Fowler e Getters"
+created_at: 04/03/2006
+kind: article
+author: Philip Calçado
+origin: http://philcalcado.com/2006/03/04/fowler-e-getters/index.html
+---
+
+
+<p>Martin Fowler escreveu um belo artigo em seu Bliki sobre getters e encapsulamento. Em <a href="http://martinfowler.com/bliki/GetterEradicator.html">Getter Erradication</a> Fowler começa falando sobre como a prática de evitar getters a todo custo confunde o sentido real de encapsulamento e termina dando uma &#8216;<a href="http://en.wikipedia.org/wiki/Rule_of_thumb">rule of thumb</a>&#8216; (uma regrinha rápida para ser aplicada por padrão) para identificar se uma classe possui seu encapsulamento violado.</p>
+<p>Acho que Martin vai direto no ponto quando fala de encapsulamento não é simplesmente quebrado pelo uso de getters, apesar de ser uma boa prática não oferecer métodos get/set (ou seu equivalente em outra linguagem de programação) se você não precisa deles.</p>
+<p>O termo &#8216;Information Hiding&#8217; é usado como se os dados de um sistema fossem privados à um objeto só, como se apenas apra aquele objeto esta informação fosse importante.</p>
+<p>Por mais que faça sentido evitar que objetos &#8220;saibam demais&#8221;, este não é o real objetivo do encapsulamento. O sistema é feito para manipular dados, que foram inseridos pelo usuário, estes dados geralmente não são nada secretos nem deveriam ser. O ponto em encapsular um objeto é apenas evitar que sua implementação fique exposta e esconder dados de acesso externo é apenas uma consequência disso. </p>
+<p>Como este é um assunto recorrente em fóruns e listas, vamos a um pequeno exemplo para ajudar a entender melhor&#8230;</p>
+<p><code><br />
+class Telefone{<br />
+ private String ddi;<br />
+ private String ddd;<br />
+ private String numero;<br />
+ private String ramal;<br /><br />
+ public String getNumero(){<br />
+  String t = "";<br /><br />
+  if(ddi!=null) t = t + "+"+ddi;<br />
+  if(ddd!=null) t = t + "("+ddd+")";<br />
+  t= t + numero;<br />
+  if(ramal !=null) t = t + " RAMAL " +ramal;<br />
+  return t;<br />
+ }
+}<br />
+</code></p>
+<p>Se você olhar bem, o método <code>getNumero()</code> retorna <strong>todos</strong> os dados privados. O objetivo de fazê-los privados aqui não é esconder esta informação, o objetivo é esconder que quem implementou a classe quis separar cada componente do número de telefone por algum motivo. Pode ser que outro subsistema precise apenas de todos os DDDs registrados.</p>
+<p>Não haveria problema real em expôr os atributos como públicos exceto pelo fato que cada um que os consulte iria precisar montar a String, e que se essa decisão de design tiver que mudar (por exemplo, eliminando o ramal) você vai ter alterar todos os objetos que a utilizam.</p>
+<p>Recentemente eu vivi uma situação que ilustra este tipo de coisa na prática. Eu tinha um objeto &#8216;Recurso&#8217; num sistema de gerenciamento de tarefas. este objeto recebia tarefas e as listava.</p>
+<p>Acontece que quanto mais tarefas forem assignadas, mais a lista crescia. Para a maioria das funcionalidades eu só precisava das tarefas que ainda não haviam sido completadas mas estas estavam na mesma lista que as completadas. Essa decisão manteve o design simples enquanto foi possível ser mantida. Neste cenário eu poderia simplesmente liberar o acesso à minha lista de tarefas, afinal nada ali era &#8217;secreto&#8217;.</p>
+<p>Acontece que quando o objeto fosse salvo e carregado do banco de dados o consumo de memória ia ser absurdamente alto pela lista de tarefas que o Recurso carregava. A solução óbvia foi mantêr mais de uma lista de tarefas, na verdade foi dividido em três: tarefas concluídas, tarefas em execução e tarefas futuras.</p>
+<p>Por mil motivos, havia um método getTarefas() que retornava uma lista ordenada com odas as tarefas do Recurso, compeltas ou não. Se ao invés deste método houvesse acesso direto á lista de tarefas (vazando o fato de que eu usava uma lista para as tarefas) eu estaria em maus lençóis. Como o encapsulamento ajuda foi muito fácil transformar o método para que, ao invés de retornar a lista, retornasse uma concatenação das três listas (não que isso tenha uma performance boa&#8230;).</p>
+<p>Ao não expôr minha decisão de ter uma lsita de tarefas eu não precisei expôr o fato que eu mudei este design. Para as classes que a utilizam, a classe continua com a mesma cara de sempre.</p>
+<p>E se você está cansado de ver classes que só têm um bando de get/set dê uma olhada <a href="http://fragmental.com.br/wiki/index.php?title=Fantoches">neste artigo</a>.</p>
