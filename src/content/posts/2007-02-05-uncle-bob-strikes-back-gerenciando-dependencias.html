@@ -1,0 +1,37 @@
+---
+title: "Gerenciando Dependências com Uncle Bob"
+created_at: 05/02/2007
+kind: article
+author: Philip Calçado
+origin: http://philcalcado.com/2007/02/05/uncle-bob-strikes-back-gerenciando-dependencias/index.html
+---
+
+<p>A melhor coisa desse lance todo de <a href="http://www.youtube.com">vídeo em flash barato</a>, <a href="http://video.globo.com">portais de conteúdo em vídeo</a>, <a href="http://download.radrails.org.nyud.net:8090/video/RadRailsScreencast.mov">screencasts</a>, etc. é que nós, pobres brasileiros afastados de tudo que é legal em tecnologia, podemos assitir palestras e não apenas pegar os PDFs. </p>
+<p>
+Nessa onda <a href="http://www.infoq.com/presentations/principles-agile-oo-design">o InfoQ tem uma apresentação do Uncle Bob</a> simplesmente genial. Robert C. Martin sempre traz a tona a necessidade do gerenciamento de dependências e o bom empacotamento de software. Seu livro mais marcante tem páginas e páginas sobre o assunto que, realmente, é algo complexo.
+</p>
+<p>Recentemente eu lidava com 3 grandes sistemas legados, fracamente relacionados entre si e construídos em paralelo. O problema é que a relação forma a coisa mais odiosa que se pode ter no gerenciamento de dependências: <strong>dependências cíclicas!</strong></p>
+<p>A coisa surgiu como um projeto dividido em dois módulos.</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/1.png" alt="s" /></p>
+<p>Projeto waterfall, na primeira mudança foi &#8216;dado um jeitinho&#8217; e uma funcionalidade que o backoffice precisava já estava disponível no sistema&#8230;</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/2.png" alt="s" /></p>
+<p>Em breve surgiu o outro projeto no horizonte e o arquiteto resolveu que haviam funcionalidades de um que podiam ser aproveitadas no outro. Pena que ele não olhou para os diagramas UML que desenhou com tanto carinho.</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/3.png" alt="s" /></p>
+<p>Mas tudo bem. Tudo seria resolvido com a versão 2.0 do projeto. Basta fazer uns ajustes aqui, reutilizar aquilo ali&#8230;</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/4.png" alt="s" /></p>
+<p>Neste ponto o projeto ficou ingerenciável. Simplesmente não se podia tratar um bloco de software isoladamente, era tudo parte de um grande emaranhado de componentes frágeis que compartilhavam código e possuíam nível de acoplamento absurdo. Passar um componente para produção indicava passar  e testar todos os componentes. Pior que isso: para subir a versão 2.0 do projeto precisávamos manter a primeira versão porque ela era uma dependência transitiva!</p>
+<p>Corrigir este problema não é tarefa simples, mas Uncle Bob nos dá algumas regrinhas muito úteis:</p>
+<ul>
+<li><strong>REP - Reuse-Release Equivalnece Principle:</strong> Tudo que é criado apra ser reutilizável deve ser empacotado corretamente. Software criado para reuso deve ser projetado para isso do início, de maneira lógica. <strong>Não deve haver código não-reutilizável num pacote reutilizável</strong>.</li>
+<li><strong>CRP - The Common Reuse Principle:</strong> Classes num pacote são reutilizadas em conjunto, se você reutiliza uma reutiliza todas. Uma pacote deve ser uma unidade atômica, as classes que estão dentro dele devem fazer sentido apenas se usadas em conjunto. Não devem haver classes utilizadas isoladamente num pacote reutilizável, <strong>a unidade de reuso é o pacote</strong>, não a classe.</li>
+<li><strong>CCP - The Common-Closure Principle:</strong> Uma generalização do <em>Single Responsibility Principle</em> (SIP). Para o SIP uma classe deve ter apenas um motivo para ser alterada, se mais de um tipo de  mudança no sistema afeta a classe provavelmente ela pode ser dividia em mais de uma, ela representa conceitos demais. O mesmo se aplica para pacotes. Um pacote também deve seguir o<em> Open-Closed Principle</em> (OCP) e se proteger de mudanças ao mesmo tempo que está aberto à extensão.</li>
+<li><strong>SDP - The Stable-Dependencies Principle:</strong> Um pacote que se espera ser volátil (mudar facilmente) não pode ser dependência de um pacote que se espera estável (mudar quase nunca). Pacotes estáveis devem depender apenas de pacotes estáveis. Pacotes voláteis podem depender de outros voláteis, mas idealmente devem também depender apenas de pacotes estáveis. Muitos pacotes voláteis em uma corrente de dependências causa um estrago muito grande no &#8216;efeito dominó&#8217;.</li>
+<li><strong>SAP - The Stable-Abstractions Principle:</strong> Um pacote deve ser tão abstrato quanto estável. É mais que certo que quanto mais próximo uma abstração chegar da realidade mais facilmente ela muda. Um pacote abstrato (e neste caso isso geralmente significa classes abstratas<em> mesmo</em>) é mais estável porque não se rpende a detalhes de implementação.</li>
+</ul>
+<p>Aplicando essas e outras técncias fatalmente chegamos a uma situação ainda ruim, mas ao menos gerenciável.</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/5.png" alt="s" /></p>
+<p>E finalmente ao que consideramos aceitável.</p>
+<p><img src="http://fragmental.com.br/files/pics/packages/6.png" alt="s" /></p>
+<p>Tudo ao gasto de alguns meses sem desenvolvimento de coisas novas, só arrumando a bagunça. Note que este sistema não foi originalmente criado por amadores e sim por uma consultoria <em>top top top</em> multinacional. </p>
+<p>Acontece que, como um dos envolvidos no projeto original me disse durante o projeto <em>&#8220;essas coisas funcionam muito bem na teoria mas a prática é outra&#8221;</em>, logo antes de afirmar que nunca lera nada sobre gerenciamento de dependências e <em>&#8220;trabalhava muito bem sem isso&#8221;</em>. </p>
+<p>Será que é mesmo a teoria que possui problemas?</p>
