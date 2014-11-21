@@ -1,0 +1,32 @@
+---
+title: "Homo Burocraticus"
+created_at: 04/07/2005
+kind: article
+author: Philip Calçado
+origin: http://philcalcado.com/2005/07/04/homo-burocraticus/index.html
+---
+
+<p><span style="font-weight: bold;">Esse texto desconexo é um desabafo.</span></p>
+<p>É impressionante como conceitos enganam. O <a href="http://www.crea-mt.org.br/mostrar_noticias.asp?id=799">Homo Burocraticus</a> prevalece nas empresas do mundo todo, e raramente alguém percebe que tem algo errado. Será que é evolução?</p>
+<p>Você já o viu, certamente. Talvez na baia ao lado, talvez na <span style="font-weight: bold;">sua</span> baia. Esta espécie está sempre atrás do mais novo relatório XYZ, sempre querendo saber por que o documento ASD-00321.8 não está marcado para revisão.</p>
+<div style="text-align: center;"><a href="http://www.dilbert.com/comics/dilbert/archive/images/dilbert2005071744002.gif"><img style="width: 455px; height: 159px;" src="http://www.dilbert.com/comics/dilbert/archive/images/dilbert2005071744002.gif" alt="Today's Dilbert Comic" border="0" /></a></div>
+<p>As pessoas criaram <a href="http://www-306.ibm.com/software/awdtools/rup/">processos </a>para tentar fazer profissionais de todos os níveis trablharem bem. A idéia é simples: force os programadores medíocres a seguirem um conjunto de processos pré-definidos e burocráticos e eles não terão chance de fazer besteira. Os bons profissionais, como dizem, serão bons em qualquer processo.</p>
+<p>Este ambiente criou espaço para uma raça enfadonha que se esconde atrás do processo. Você tem que acreditar no processo, o processo é tudo, é ele quem produz software, não as pessoas.</p>
+<p>Reconhecer um ambiente assim é simples, basta ver quando um projeto possui como marco documentação. Note: documentação é importante o suficiente para perder tempo escrevendo-a, mas quando se dá às especificações o mesmo valor que funcionalidade implementada ou qualidade, nós ou estamos construindo um prédio ou estamos em maus lençóis.</p>
+<p>Neste lugar, as reuniões são com as mesmas reclamações: &#8220;Não pude implementar ABC porque a especificação ainda está em revisão&#8221;, &#8220;Err.. eu não sabia que não dava pra fazer o módulo B daquele jeito, vou ter que mudar a especificação e isso vai alterar outras coisas&#8221;&#8230; no fim das contas, sua especificação fica defasada e não serve para nada. Ok, depois você conserta, só que &#8220;depois&#8221; nunca chega, quando chegar a hora de fazer isso ou já tem projeto novo ou as pessoas deixam o time.</p>
+<p>Ao invés de medir a qualidade pelo número de páginas ou abrangência de sua documentação, foque na única documentação que sempre está atualizada: o código. As linguagens de programação de hoje possuem um nível tão alto que já são auto-documentáveis.</p>
+<p>Para manter seu código legível o uficiente para servir de documentação crie testes, pratique Domain Driven Design e refatore sempre.</p>
+<p><span style="font-weight: bold;">Crie Testes</span><br />Programar orientado a testes é uma técnica muito boa, isso já foi dito em <a href="http://www.junit.org/news/article/index.htm">muitos lugares</a> e não vou justificar novamente aqui.</p>
+<p>Mas criar um teste unitário é utilizar um componente. Fazendo isso, você exercita a interface pública deste e diz quis as condições de erro e de acerto. Uma pessoa nova no projeto que lê o teste já sabe como a classe funciona e quando ela quebra do ponto de vista do usuário.</p>
+<p><span style="font-weight: bold;">Pratique Domain Driven Design<br /></span>Neste contexto, <a href="http://domaindrivendesign.org/">DDD </a>é programar para o domínio. Quando você usa esta técnica, seu software (sua <span style="font-style: italic;">camada de negócios</span> quase sempre) reflete o conhecimento do domínio do seu usário, você modela os conceitos do problema de uma maneira clara no software.</p>
+<p>Ao invés de simplesmente criar estruturas de dados e algoritmos, você implementa conceitos e através deles cria um entendimento muito maior sobre o que seu sistema faz para seus usuários, você e para quem for ler seu programa.</p>
+<p><span style="font-weight: bold;">Refatore<br /></span>Refatorando seu código você em primeiro lugar exercita ele na sua cabeça. Para pessoas como eu que simplesmente não conseguem lembrar coisas, isso é inestimável.</p>
+<p>Depois, você aumenta a qualidade do código. Quem ler seu código em seguida vai ter muito mais clareza do que quem leu aquela primeira versão, feita com um prazo curto e pressão de gerentes e usuários.</p>
+<p>São medidas simples e aplicáveis em qualquer lugar, não é rpeciso que se tenha um processo XP, A, B  ou Z.</p>
+<p>Se você está preso num lugar onde especificações detalhadas são a ordem da casa, tente criar documentos mais abstratos (aposto que ninguém vai reparar). Não detalhe processos, documente apenas a interface externa do seu componente (que provavelmente outra pessoa vai precisar usar) e descreva em poucas palavras(ou diagramas) o funcionamento interno, utilize o encapsulamento aqui, faça a especificação ser uma interface do seu componente.</p>
+<p>Tente colocar uma referência aos testes unitários como parte da documentação, apenas diga onde podem ser encontrados e, talvez (depende do ambiente) como executá-los. Se você está especificando para outro implementar, este pode se guiar pelos testes para entender o que você quis dizer.</p>
+<p>Mantenha o documento aberto junto com o código (se sua memória RAM deixar, claro, do contrário imprima uma cópia e use caneta e marcador de texto), e quando for mudar algo drástico, mude o documento na hora. Como você escreveu de maneira abstrata, mudanças na implementação (que são mais comuns do que na interface, queira o bom Zahl) não devem alterar muito o documento.</p>
+<p>Não crie documentação que pode ser gerada automaticamnete, como diagramas de classe. Não crie documentação só por criar, se não precisa usar, não crie.</p>
+<p>Se você é gerente de projeto, por favor aprenda a medir o andamento do seu projeto de software através de métricas reais. Não sei se você reparou, mas PDF e documento Word não compila, não roda e não dá funcionalidade. O número de diagramas num documento é proporcional ao trabalho que dá atualizar tudo depois e, acredite, tudo vai precisar ser atualizado depois.</p>
+<p>Note que eu não estou dizendo para você não especificar ou documentar, estou dizendo para você não gastar esforço em coisas que não trarão valor.
+<div style="clear:both; padding-bottom: 0.25em;"></div>
