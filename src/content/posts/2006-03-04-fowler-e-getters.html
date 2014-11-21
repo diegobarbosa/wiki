@@ -12,22 +12,24 @@ origin: http://philcalcado.com/2006/03/04/fowler-e-getters/index.html
 <p>O termo &#8216;Information Hiding&#8217; é usado como se os dados de um sistema fossem privados à um objeto só, como se apenas apra aquele objeto esta informação fosse importante.</p>
 <p>Por mais que faça sentido evitar que objetos &#8220;saibam demais&#8221;, este não é o real objetivo do encapsulamento. O sistema é feito para manipular dados, que foram inseridos pelo usuário, estes dados geralmente não são nada secretos nem deveriam ser. O ponto em encapsular um objeto é apenas evitar que sua implementação fique exposta e esconder dados de acesso externo é apenas uma consequência disso. </p>
 <p>Como este é um assunto recorrente em fóruns e listas, vamos a um pequeno exemplo para ajudar a entender melhor&#8230;</p>
-<p><code><br />
-class Telefone{<br />
- private String ddi;<br />
- private String ddd;<br />
- private String numero;<br />
- private String ramal;<br /><br />
- public String getNumero(){<br />
-  String t = "";<br /><br />
-  if(ddi!=null) t = t + "+"+ddi;<br />
-  if(ddd!=null) t = t + "("+ddd+")";<br />
-  t= t + numero;<br />
-  if(ramal !=null) t = t + " RAMAL " +ramal;<br />
-  return t;<br />
+
+<pre><code class="c#">
+class Telefone{
+ private String ddi;
+ private String ddd;
+ private String numero;
+ private String ramal;
+ public String getNumero(){
+  String t = "";
+  if(ddi!=null) t = t + "+"+ddi;
+  if(ddd!=null) t = t + "("+ddd+")";
+  t= t + numero;
+  if(ramal !=null) t = t + " RAMAL " +ramal;
+  return t;
  }
-}<br />
-</code></p>
+}
+</code></pre>
+
 <p>Se você olhar bem, o método <code>getNumero()</code> retorna <strong>todos</strong> os dados privados. O objetivo de fazê-los privados aqui não é esconder esta informação, o objetivo é esconder que quem implementou a classe quis separar cada componente do número de telefone por algum motivo. Pode ser que outro subsistema precise apenas de todos os DDDs registrados.</p>
 <p>Não haveria problema real em expôr os atributos como públicos exceto pelo fato que cada um que os consulte iria precisar montar a String, e que se essa decisão de design tiver que mudar (por exemplo, eliminando o ramal) você vai ter alterar todos os objetos que a utilizam.</p>
 <p>Recentemente eu vivi uma situação que ilustra este tipo de coisa na prática. Eu tinha um objeto &#8216;Recurso&#8217; num sistema de gerenciamento de tarefas. este objeto recebia tarefas e as listava.</p>
