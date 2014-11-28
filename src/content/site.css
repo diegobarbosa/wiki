@@ -64,3 +64,13 @@ blockquote {
 blockquote, strike {
     color: #777 !important;
 }
+
+
+ul {
+    margin: 15px 0px 15px 20px;
+}
+
+li
+{
+	margin-bottom: 10px;	
+}
