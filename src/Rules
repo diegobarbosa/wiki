@@ -25,6 +25,8 @@ compile '*' do
     # don’t javascript  
   elsif item.binary?
     # don’t filter binary items
+  elsif item[:extension] == 'md'
+    filter :kramdown
   else
     filter :erb
     layout 'default'
